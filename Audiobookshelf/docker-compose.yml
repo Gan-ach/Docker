@@ -1,0 +1,19 @@
+services:
+  audiobookshelf:
+    image: ghcr.io/advplyr/audiobookshelf:latest
+    container_name: audiobookshelf
+    restart: unless-stopped
+    ports:
+      - 13378:80
+    volumes:
+      - /home/gan/stacks/audiobookshelf/config:/config
+      - /home/gan/stacks/audiobookshelf/metadata:/metadata
+      - /mnt/Media:/audiobooks
+      - /mnt/Media/Podcasts:/podcasts
+    environment:
+      - TZ=Asia/Krasnoyarsk
+networks:
+  npm_npm:
+    external: true
+  npm_crowdsec:
+    external: true
