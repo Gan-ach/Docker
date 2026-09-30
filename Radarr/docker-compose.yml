@@ -1,0 +1,18 @@
+services:
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Krasnoyarsk
+    volumes:
+      - /home/gan/stacks/radarr/data:/config
+      - /mnt/Media:/movies #optional
+      - /mnt/Media/radarr:/downloads #optional
+    ports:
+      - 7878:7878
+    restart: unless-stopped
+networks:
+  dockge_default:
+    external: true
