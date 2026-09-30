@@ -1,0 +1,16 @@
+services:
+  jellyfin:
+    image: jellyfin/jellyfin
+    container_name: jellyfin
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Krasnoyarsk
+    volumes:
+      - /home/gan/stacks/jellyfin/config:/config
+      - /home/gan/stacks/jellyfin/cache:/cache
+      - /mnt/Media:/media
+    ports:
+      - 8096:8096
+    restart: unless-stopped
+networks: {}
