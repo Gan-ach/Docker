@@ -1,0 +1,15 @@
+services:
+  dockhand:
+    image: fnsys/dockhand:latest
+    container_name: dockhand
+    restart: unless-stopped
+    ports:
+      - 3333:3000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - dockhand_data:/app/data
+      - /home/gan/stacks:/home/gan/stacks
+      - /home/gan/dockge:/home/gan/dockge
+volumes:
+  dockhand_data: null
+networks: {}
