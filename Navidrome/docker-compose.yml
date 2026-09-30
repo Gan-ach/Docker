@@ -1,0 +1,16 @@
+services:
+  navidrome:
+    image: deluan/navidrome:latest
+    container_name: navidrome
+    restart: unless-stopped
+    ports:
+      - 4533:4533
+    environment:
+      TZ: Asia/Krasnoyarsk
+      ND_SCANSCHEDULE: 1h
+      ND_LOGLEVEL: info
+      ND_SESSIONTIMEOUT: 24h
+    volumes:
+      - /home/gan/stacks/navidrome/data:/data
+      - /mnt/Media/Audio:/music
+networks: {}
