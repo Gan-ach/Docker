@@ -1,0 +1,17 @@
+services:
+  plex:
+    image: lscr.io/linuxserver/plex:latest
+    container_name: plex
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Krasnoyarsk
+      - VERSION=docker
+      - PLEX_CLAIM=claim.......
+    volumes:
+      - /home/gan/stacks/plex/config:/config
+      - /home/gan/stacks/plex/transcode:/transcode
+      - /mnt/Media:/media
+    restart: unless-stopped
+networks: {}
